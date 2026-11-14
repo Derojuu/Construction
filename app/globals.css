@@ -1,0 +1,711 @@
+@import "tailwindcss";
+@import "../styles/theme.css";
+
+@font-face {
+  font-family: "SequelSans";
+  src: url("/fonts/SequelSans.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PPFraktionMono";
+  src: url("/fonts/PPFraktionMono.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gold: #B9B36D;
+  --color-background-grey: #F5F5F5;
+  --color-grey: #BEBEBE;
+}
+
+@theme {
+  --color-brand-black: #000000;
+  --color-brand-white: #ffffff;
+  --color-brand-gold: #B9B36D;
+  --color-brand-bg-grey: #F5F5F5;
+  --color-brand-grey: #BEBEBE;
+  --font-sequel: "SequelSans", system-ui, -apple-system, sans-serif;
+  --font-fraktion: "PPFraktionMono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: "SequelSans", system-ui, -apple-system, sans-serif;
+  color: var(--color-black);
+  background-color: var(--color-background-grey);
+  line-height: 1.3;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-PPFraktionMono {
+  font-family: "PPFraktionMono", monospace;
+}
+
+.font-SequelSans {
+  font-family: "SequelSans", sans-serif;
+}
+
+.allcaps {
+  text-transform: uppercase;
+}
+
+/* Color theme utilities matching the site's data-section-background-color */
+.background-color-black {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.background-color-white {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.background-color-gold {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+.background-color-background-grey {
+  background-color: var(--color-background-grey);
+  color: var(--color-black);
+}
+
+/* Headings and Typography */
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+  margin: 1.75em 0 1em 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.h1 {
+  font-size: 3.2em;
+  line-height: 1;
+}
+
+.h2 {
+  font-size: 3.2em;
+  line-height: 1;
+}
+
+@media (min-width: 769px) {
+  .h1 {
+    font-size: 4.15em;
+  }
+  .h2 {
+    font-size: 5.1em;
+  }
+}
+
+.h3 {
+  font-size: 1.8em;
+  line-height: 1.2;
+}
+
+@media (min-width: 769px) {
+  .h3 {
+    font-size: 2.8em;
+  }
+}
+
+.h4 {
+  font-size: 1.25em;
+  line-height: 1.25;
+}
+
+.h5 {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  margin-top: 2em;
+}
+
+.lead {
+  font-size: 1.2em;
+  font-family: "SequelSans", sans-serif;
+  line-height: 1.4;
+}
+
+p {
+  margin: 0 0 1.75em 0;
+}
+
+/* Layout section base */
+.section {
+  padding-top: 3em;
+  padding-bottom: 3em;
+  box-sizing: border-box;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section > :first-child {
+  margin-top: 0;
+}
+
+.section > :last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 480px) {
+  .section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .section {
+    padding-left: 5.9rem;
+    padding-right: 5.9rem;
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+}
+
+@media (min-width: 1400px) {
+  .section {
+    padding-left: calc((100% - 116rem) / 2);
+    padding-right: calc((100% - 116rem) / 2);
+  }
+}
+
+/* Button with Arrow */
+.btn-with-arrow,
+a.btn-with-arrow {
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  background: transparent;
+  outline: none !important;
+  border: solid 1px #000;
+  background-color: #000;
+  color: #000;
+  display: inline-flex;
+  font-size: 1em;
+  padding: 0;
+  transition: 0.2s;
+  line-height: normal;
+  border-radius: 0.065em;
+  font-family: "PPFraktionMono", monospace;
+  text-transform: uppercase;
+  position: relative;
+  min-height: 2.5em;
+  text-align: left;
+}
+
+.btn-with-arrow span,
+a.btn-with-arrow span {
+  min-width: 7em;
+  padding: 0.5em 0.65em;
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  width: calc(100% - 2.65em + 1px);
+  background-color: #fff;
+  color: #000;
+  transition: 0.25s;
+}
+
+.btn-with-arrow i,
+a.btn-with-arrow i {
+  padding: 0.5em 0.65em;
+  border-left: solid 1px transparent;
+  position: relative;
+  width: 2.65em;
+  min-height: calc(2.5em + 2px);
+  box-sizing: border-box;
+  margin-left: 1px;
+  background-color: #fff;
+  transition: 0.25s;
+}
+
+.btn-with-arrow i:before,
+a.btn-with-arrow i:before {
+  transition: 0.2s;
+  content: "";
+  background: url("/images/arrow-sm.svg") no-repeat center center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.btn-with-arrow:hover i:before,
+.btn-with-arrow:focus i:before,
+a.btn-with-arrow:hover i:before,
+a.btn-with-arrow:focus i:before {
+  animation: shake-side-to-side 0.5s ease-in-out 2;
+}
+
+.btn-with-arrow:hover,
+.btn-with-arrow:focus,
+a.btn-with-arrow:hover,
+a.btn-with-arrow:focus {
+  border-color: #fff;
+  background: #fff;
+}
+
+.btn-with-arrow:hover span,
+.btn-with-arrow:hover i,
+.btn-with-arrow:focus span,
+.btn-with-arrow:focus i,
+a.btn-with-arrow:hover span,
+a.btn-with-arrow:hover i,
+a.btn-with-arrow:focus span,
+a.btn-with-arrow:focus i {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-with-arrow:hover i:before,
+.btn-with-arrow:focus i:before,
+a.btn-with-arrow:hover i:before,
+a.btn-with-arrow:focus i:before {
+  filter: invert(1);
+}
+
+/* Reverse variant (used in project cards) */
+.btn-with-arrow.reverse,
+a.btn-with-arrow.reverse {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-with-arrow.reverse span,
+a.btn-with-arrow.reverse span {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-with-arrow.reverse i,
+a.btn-with-arrow.reverse i {
+  background-color: #000;
+}
+
+.btn-with-arrow.reverse i:before,
+a.btn-with-arrow.reverse i:before {
+  filter: invert(1);
+}
+
+.btn-with-arrow.reverse:hover,
+.btn-with-arrow.reverse:focus,
+a.btn-with-arrow.reverse:hover,
+a.btn-with-arrow.reverse:focus {
+  background-color: #000;
+  border-color: #000;
+}
+
+.btn-with-arrow.reverse:hover span,
+.btn-with-arrow.reverse:hover i,
+.btn-with-arrow.reverse:focus span,
+.btn-with-arrow.reverse:focus i,
+a.btn-with-arrow.reverse:hover span,
+a.btn-with-arrow.reverse:hover i,
+a.btn-with-arrow.reverse:focus span,
+a.btn-with-arrow.reverse:focus i {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-with-arrow.reverse:hover i:before,
+.btn-with-arrow.reverse:focus i:before,
+a.btn-with-arrow.reverse:hover i:before,
+a.btn-with-arrow.reverse:focus i:before {
+  filter: invert(0);
+}
+
+/* Transparent variant (feature project) */
+.btn-with-arrow.transparent,
+a.btn-with-arrow.transparent {
+  border-color: #fff;
+  background-color: transparent;
+}
+
+.btn-with-arrow.transparent span,
+a.btn-with-arrow.transparent span {
+  background-color: transparent;
+  color: #fff;
+}
+
+.btn-with-arrow.transparent i,
+a.btn-with-arrow.transparent i {
+  border-left: solid 1px #fff;
+  background-color: transparent;
+}
+
+.btn-with-arrow.transparent i:before,
+a.btn-with-arrow.transparent i:before {
+  filter: invert(1);
+}
+
+.btn-with-arrow.transparent:hover,
+.btn-with-arrow.transparent:focus,
+a.btn-with-arrow.transparent:hover,
+a.btn-with-arrow.transparent:focus {
+  border-color: transparent;
+  background: transparent;
+}
+
+.btn-with-arrow.transparent:hover span,
+.btn-with-arrow.transparent:focus span,
+a.btn-with-arrow.transparent:hover span,
+a.btn-with-arrow.transparent:focus span {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-with-arrow.transparent:hover i,
+.btn-with-arrow.transparent:focus i,
+a.btn-with-arrow.transparent:hover i,
+a.btn-with-arrow.transparent:focus i {
+  border-left-color: transparent;
+  background-color: #000;
+}
+
+/* Label badges */
+.label-style {
+  border: solid 1px;
+  display: inline-block;
+  text-align: center;
+  font-size: 1em;
+  line-height: normal;
+  border-radius: 0.3em;
+  font-family: "PPFraktionMono", monospace;
+  cursor: pointer;
+  transition: 0.25s;
+  padding: 0.35em 0.85em;
+  margin-bottom: 0.25em;
+  margin-right: 0.4em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.background-color-black .label-style {
+  border-color: #fff;
+  color: #fff;
+  background: transparent;
+}
+
+.background-color-black .label-style:hover,
+.background-color-black .label-style:focus {
+  border-color: #fff;
+  background-color: #fff;
+  color: #000;
+}
+
+.background-color-background-grey .label-style {
+  border-color: #000;
+  color: #000;
+  background: transparent;
+}
+
+.background-color-background-grey .label-style:hover,
+.background-color-background-grey .label-style:focus {
+  border-color: #000;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Block Heading */
+.block-heading {
+  display: block;
+}
+
+.block-heading > span {
+  background: #fff;
+  border-radius: 0.065em;
+  margin: 0.04em 0.08em 0.04em 0;
+  display: inline-block;
+  padding: 0.185em 0.195em 0.09em;
+}
+
+.background-color-gold .block-heading > span {
+  background-color: var(--color-black);
+  color: #fff;
+}
+
+.block-heading .block-heading__arrow {
+  position: relative;
+  min-width: 1.4em;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.block-heading .block-heading__arrow:before {
+  content: "";
+  background: url("/images/arrow.svg") no-repeat center;
+  display: block;
+  background-size: 0.5em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.background-color-gold .block-heading .block-heading__arrow:before {
+  filter: invert(1);
+}
+
+/* Animations */
+@keyframes shake-side-to-side {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+/* Navigation specific */
+.top-nav {
+  text-transform: uppercase;
+  align-items: center;
+  padding: 1.25em 1.6rem;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .top-nav {
+    display: inline-flex;
+  }
+}
+
+.top-nav * {
+  display: inline-flex;
+  align-items: center;
+}
+
+.top-nav ul, .top-nav li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.top-nav ul {
+  margin-left: 2rem;
+}
+
+.top-nav li {
+  margin-right: 0.15em;
+  position: relative;
+}
+
+.top-nav li a {
+  padding: 0.5em 1.25em;
+  border-radius: 0.2em;
+  transition: 0.25s;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+}
+
+.top-nav li a:hover,
+.top-nav li a:focus {
+  color: #fff;
+  background-color: #000;
+}
+
+.top-nav .sub-menu {
+  display: block;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  min-width: 14.2em;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.5em);
+  transition: 0.3s;
+}
+
+.top-nav .sub-menu > * {
+  display: block;
+  margin-top: 0.15em;
+  width: 100%;
+}
+
+.top-nav .sub-menu a {
+  width: 100%;
+  color: #fff;
+  background-color: #000;
+}
+
+.top-nav .sub-menu a:hover,
+.top-nav .sub-menu a:focus {
+  color: #000;
+  background-color: #fff;
+}
+
+.top-nav .menu-item-has-children:hover .sub-menu,
+.top-nav .menu-item-has-children:focus-within .sub-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Preloader */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: #fff;
+  transition: opacity 0.5s ease-in, visibility 0.5s;
+}
+
+.preloader:before {
+  content: "";
+  background: url("/images/mark.svg") no-repeat center;
+  background-size: auto 40%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (min-width: 769px) {
+  .preloader:before {
+    background-size: auto 70%;
+  }
+}
+
+.preloader .slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.preloader .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.preloader .media {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.preloader .media > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preloader .media:before {
+  content: "";
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.preloader .media:after {
+  content: "";
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.preloaderplaying .slidein {
+  animation: slideIn 0.4s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  animation-delay: calc(var(--i) * 0.32s);
+}
+
+.preloadergone {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Forms in section CTA */
+.nf-field-container {
+  clear: both;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.nf-field-element input[type="text"],
+.nf-field-element input[type="email"],
+.nf-field-element textarea {
+  width: 100%;
+  border-radius: 0;
+  font-family: "PPFraktionMono", monospace;
+  box-shadow: none;
+  border: none;
+  border-bottom: solid 1px #000;
+  background-color: transparent;
+  font-size: 1em;
+  padding: 0.5em 0;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.nf-field-element input[type="text"]:focus,
+.nf-field-element input[type="email"]:focus,
+.nf-field-element textarea:focus {
+  border-bottom: solid 1.5px #000;
+}
+
+.nf-field-element textarea {
+  min-height: 8em;
+  resize: vertical;
+}
+
+.smartplaceholder .nf-field-label {
+  position: relative;
+  transition: 0.3s;
+  pointer-events: none;
+  margin: 0 !important;
+  font-family: "PPFraktionMono", monospace;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+}
